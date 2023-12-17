@@ -4,16 +4,17 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
   root: 'front',
-  base: '/',
+  base: '/portfolio-v2/',
   envDir: '../',
   publicDir: 'public',
   build: {
     outDir: '../dist',
     emptyOutDir: true,
+
     rollupOptions: {
       output: {
-        entryFileNames: '[name].js',
-        chunkFileNames: '[name].js',
+        entryFileNames: 'public/js/[name].js',
+        chunkFileNames: 'public/js/[name].js',
         assetFileNames: '[name].[ext]',
       },
     },

@@ -13,6 +13,7 @@ export const HandleScroll = ({ sectionId }: { sectionId: string }) => {
     }
   };
 
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     handleScroll();
