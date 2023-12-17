@@ -1,31 +1,43 @@
-import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
-import path from 'path';
+import react from '@vitejs/plugin-react';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
-  plugins: [react()],
-  resolve: {
-    alias: {
-      '@': path.resolve(new URL('.', import.meta.url).pathname, 'src'),
-    },
-  },
+  root: 'front',
+  base: '/',
+  envDir: '../',
+  publicDir: 'public',
   build: {
-    target: 'esnext',
-    outDir: 'dist',
-    assetsDir: 'assets', // assets ディレクトリを指定
-    minify: 'esbuild',
-    lib: {
-      entry: path.resolve(new URL('.', import.meta.url).pathname, 'src/main.tsx'),
-      formats: ['es'],
-    },
-    sourcemap: true,
+    outDir: '../dist',
+    emptyOutDir: true,
     rollupOptions: {
-      external: ['react', 'react-dom'],
       output: {
-        entryFileNames: '[name].js', // entry chunk の書き出し名
-        chunkFileNames: '[name].js', // chunk の書き出し名
-        assetFileNames: '[name].[ext]', // asset の書き出し名
+        entryFileNames: '[name].js',
+        chunkFileNames: '[name].js',
+        assetFileNames: '[name].[ext]',
       },
     },
+    target: 'esnext',
+    minify: 'esbuild',
+    // lib: {
+    //   entry: path.resolve(new URL('.', import.meta.url).pathname, 'src/main.tsx'),
+    //   formats: ['es'],
+    // },
+    sourcemap: true,
   },
+  plugins: [
+    react(),
+    tsconfigPaths({
+      root: '../',
+    }),
+  ],
+  server: {
+    port: 3000,
+    open: true,
+  },
+  // resolve: {
+  //   alias: {
+  //     '@': path.resolve(new URL('.', import.meta.url).pathname, 'src'),
+  //   },
+  // },
 });
