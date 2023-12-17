@@ -6,6 +6,15 @@
       "DOM",
       "DOM.Iterable"
     ],
+    "baseUrl": "./front",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "~/*": [
+        "./public/*"
+      ]
+    },
     "module": "esnext",
     "target": "esnext",
     "jsx": "react-jsx",
@@ -25,7 +34,10 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "src"
+    "src",
+    "front",
+    "vite.config.ts",
+    "vite.config.ts"
   ],
   "references": [
     {
