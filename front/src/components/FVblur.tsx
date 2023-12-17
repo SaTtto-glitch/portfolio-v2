@@ -34,9 +34,11 @@ export const FVblur = () => {
       const isBeyondThreshold = scrollValue > thresholdScrollValue;
       const transitionValue = 'filter 0.5s ease, transform 0.5s ease';
 
-      element.style.transition = transitionValue;
-      element.style.filter = isBeyondThreshold ? `blur(${calculateBlur()}px)` : 'blur(0)';
-      element.style.backgroundSize = isBeyondThreshold ? `${calculateZoom() * 100}%` : 'cover';
+      const backgroundElement = element as HTMLElement;
+
+      backgroundElement.style.transition = transitionValue;
+      backgroundElement.style.filter = isBeyondThreshold ? `blur(${calculateBlur()}px)` : 'blur(0)';
+      backgroundElement.style.backgroundSize = isBeyondThreshold ? `${calculateZoom() * 100}%` : 'cover';
     });
   }, [scrollValue]);
 
