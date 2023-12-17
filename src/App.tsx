@@ -1,6 +1,6 @@
 import "@/scss/index.scss";
 
-import { BrowserRouter as Routes, Route } from "react-router-dom";
+import { BrowserRouter as Routes } from "react-router-dom";
 import { Top } from "./pages/top";
 
 

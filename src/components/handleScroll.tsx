@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../scss/pages/top.scss';
 
-export const HandleScroll = ({ sectionId }) => {
+export const HandleScroll = ({ sectionId }: { sectionId: string }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const handleScroll = () => {
