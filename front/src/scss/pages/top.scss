@@ -13,6 +13,7 @@
 }
 
 
+
 .FV {
   position: fixed;
 
@@ -28,7 +29,7 @@
     height: 110%;
     background-image: url(img/FV/FV.png);
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: top center;
     position: absolute;
     top: -10px;
     left: -10px;
@@ -166,6 +167,26 @@
   transform: translateY(0);
 }
 
+
+.modalWrapper {
+  display: flex;
+  overscroll-behavior: contain;
+  overflow-y: scroll;
+  background-color: #f3f3f3;
+
+  /* ↓浮かせる設定 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.nonScroll {
+  height: calc(100vh + 1px);
+  width: 1px;
+  background-color: transparent;
+}
+
 .modal {
   display: flex;
   flex-direction: column;
@@ -179,11 +200,19 @@
   border-radius: 10px;
   text-align: center;
 
-  /* ↓浮かせる設定 */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    img {
+      width: 30px;
+      height: 30px;
+
+    }
+  }
+
+
 }
 
 

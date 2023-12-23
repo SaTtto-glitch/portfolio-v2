@@ -4,7 +4,6 @@ import '../scss/pages/top.scss';
 function DogAppContent() {
   return (
     <div>
-      <p>Dogアプリのモーダル内容</p>
       <div>
         <p className="card__title">Dogアプリ</p>
         <p className="card__info">
@@ -65,9 +64,14 @@ function Modal({ cardType, onClick }) {
   }
 
   return (
-    <div id="modal" className="modal" onClick={(event) => event.stopPropagation()}>
-      {content}
-      <button onClick={onClick}>閉じるボタン</button>
+    <div className="modalWrapper">
+      <div id="modal" className="modal" onClick={(event) => event.stopPropagation()}>
+        {content}
+        <button onClick={onClick}>
+          <img src="img/top/close.svg" alt="" />
+        </button>
+        <div className="nonScroll"></div>
+      </div>
     </div>
   );
 }

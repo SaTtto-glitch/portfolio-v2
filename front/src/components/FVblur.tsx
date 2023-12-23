@@ -1,8 +1,8 @@
-
 import { useState, useEffect } from 'react';
 
 export const FVblur = () => {
   const [scrollValue, setScrollValue] = useState(0);
+  const [isBeyondThreshold, setIsBeyondThreshold] = useState(false);
 
   const handleScroll = () => {
     const scrollPosition = window.scrollY;
@@ -17,28 +17,33 @@ export const FVblur = () => {
   }, []);
 
   const calculateBlur = () => {
-    const blurValue = Math.min(4, scrollValue);
-    return blurValue;
+    return isBeyondThreshold ? 8 : 0;
   };
 
   const calculateZoom = () => {
-    const zoomValue = 0.94 + (scrollValue / 8000);
-    return zoomValue;
+    return isBeyondThreshold ? 1.2 : 1;
   };
 
   useEffect(() => {
-    const thresholdScrollValue = 500;
+    const thresholdScrollValue = 300;
+    const hasExceededThreshold = scrollValue > thresholdScrollValue;
+
+    if (hasExceededThreshold && !isBeyondThreshold) {
+      setIsBeyondThreshold(true);
+    } else if (!hasExceededThreshold && isBeyondThreshold) {
+      setIsBeyondThreshold(false);
+    }
+
     const fvElements = document.querySelectorAll('.FV__background');
 
     fvElements.forEach((element) => {
-      const isBeyondThreshold = scrollValue > thresholdScrollValue;
-      const transitionValue = 'filter 0.5s ease, transform 0.5s ease';
+      const transitionValue = 'filter 0.5s ease, transform 0.5s ease, background-size 0.5s ease';
 
       const backgroundElement = element as HTMLElement;
 
       backgroundElement.style.transition = transitionValue;
-      backgroundElement.style.filter = isBeyondThreshold ? `blur(${calculateBlur()}px)` : 'blur(0)';
-      backgroundElement.style.backgroundSize = isBeyondThreshold ? `${calculateZoom() * 100}%` : 'cover';
+      backgroundElement.style.filter = `blur(${calculateBlur()}px)`;
+      backgroundElement.style.backgroundSize = `${calculateZoom() * 100}%`;
     });
   }, [scrollValue]);
 
