@@ -1,21 +1,26 @@
 .contents {
-  background-color: #f3f3f3;
-  margin: 900px 20px 0;
-  position: absolute;
-  z-index: 2;
-  padding: 160px 80px;
   font-size: 13px;
   letter-spacing: 0.1em;
   line-height: 1.7;
   display: flex;
   flex-direction: column;
-  gap: 180px;
+  gap: 300px;
 }
 
+.sticky-container {
+  height: 1800px;
+}
 
+.fixed-section {
+  position: sticky;
+  top: 5%;
+  left: 0;
+  right: 0;
+}
 
 .FV {
-  position: fixed;
+  width: 100%;
+  height: 100vw;
 
   &__inner {
     position: fixed;
@@ -26,6 +31,7 @@
 
   &__background {
     width: 110%;
+    min-width: 1440px;
     height: 110%;
     background-image: url(img/FV/FV.png);
     background-repeat: no-repeat;
@@ -46,6 +52,11 @@
 }
 
 .section {
+  border-radius: 8px;
+  margin: 40px;
+  padding: 100px 80px;
+  background-color: #f3f3f3;
+
   &__inner {
     display: flex;
     flex-direction: column;
@@ -156,16 +167,16 @@
   }
 }
 
-.fade {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 1s, transform 0.7s;
-}
+// .fade {
+//   // opacity: 0;
+//   transform: translateY(50px);
+//   transition: opacity 1s, transform 0.7s;
+// }
 
-.fade.fade-in {
-  opacity: 1;
-  transform: translateY(0);
-}
+// .fade.fade-in {
+//   opacity: 1;
+//   transform: translateY(0);
+// }
 
 
 .modalWrapper {
