@@ -50,6 +50,11 @@ export const HandleScroll = ({ sectionId }: { sectionId: string }) => {
                           <img src="img/icon/github-mark.svg" alt="" />
                         </a>
                       </div>
+                      <div>
+                        <a href='/portfolio-v2/blog'>
+                          blog
+                        </a>
+                      </div>
                     </div>
                   </div>
 

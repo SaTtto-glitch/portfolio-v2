@@ -1,6 +1,10 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import dotenv from 'dotenv'
+
+// .env ファイルの読み込み
+dotenv.config()
 
 export default defineConfig({
   root: 'front',

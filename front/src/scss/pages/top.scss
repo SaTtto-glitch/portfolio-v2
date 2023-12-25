@@ -180,13 +180,17 @@
 
 
 .modalWrapper {
+  width: 100vw;
+  height: 100vw;
+  justify-content: center;
+  align-items: center;
   display: flex;
   overscroll-behavior: contain;
   overflow-y: scroll;
-  background-color: #f3f3f3;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
 
   /* ↓浮かせる設定 */
-  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -200,16 +204,16 @@
 
 .modal {
   display: flex;
+  padding: 50px 80px;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 20px;
   width: 300px;
   height: 200px;
-  background-color: #FFF9F9;
+  background-color: #FFF;
   box-shadow: 0 3px 6px 3px rgba(107, 107, 107, .10);
-  color: #FF9ECA;
   border-radius: 10px;
-  text-align: center;
 
   button {
     border: none;
